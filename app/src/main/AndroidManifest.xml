@@ -5,7 +5,7 @@
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launcher_background"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -15,7 +15,7 @@
             android:value="parqueadero.db" />
         <meta-data
             android:name="VERSION"
-            android:value="2" />
+            android:value="3" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
@@ -33,7 +33,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".vista.Ingreso" />
-        <activity android:name=".vista.Consulta"></activity>
+        <activity android:name=".vista.Consulta" />
+        <activity android:name=".vista.Salida"></activity>
     </application>
 
 </manifest>

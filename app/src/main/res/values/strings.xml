@@ -14,5 +14,9 @@
     <string name="consulta">Consulta</string>
     <string name="title_activity_menu">Menu</string>
     <string name="buscar">Buscar</string>
+    <string name="registrarSalida">Registrar Salida</string>
+    <string name="fechaIngreso">Fecha Ingreso:</string>
+    <string name="fechaSalida">Fecha Salida:</string>
+    <string name="total">Total:</string>
 
 </resources>

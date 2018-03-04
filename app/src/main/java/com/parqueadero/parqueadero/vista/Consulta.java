@@ -62,7 +62,7 @@ public class Consulta extends AppCompatActivity {
     }
 
     public boolean validarCampos() {
-        if (!edtPlaca.getText().toString().matches("[a-zA-Z]{3}[0-9]{3}")) {
+        if (!edtPlaca.getText().toString().matches("([a-zA-Z]{3}[0-9]{3}$)|([a-zA-Z]{3}[0-9]{2}[a-zA-Z]{1}$)")) {
             Toast.makeText(this, "Placa incorrecta", Toast.LENGTH_LONG).show();
             return false;
         }

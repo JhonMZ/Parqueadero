@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.parqueadero.parqueadero.R;
 import com.parqueadero.parqueadero.modelo.Registro;
 
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
@@ -40,15 +41,16 @@ public class AdaptadorRegistros extends ArrayAdapter<Registro> {
         TextView txvFechaIngreso = (TextView)item.findViewById(R.id.txvFechaIngreso);
         TextView txvFechaSalida = (TextView)item.findViewById(R.id.txvFechaSalida);
         TextView txvObservacion = (TextView)item.findViewById(R.id.txvObservacion);
+        TextView txvTotal = (TextView)item.findViewById(R.id.txvTotal);
 
         txvPlaca.setText("Placa:"+registros.get(position).getPlaca());
         txvIdentificacion.setText("Identificacion:"+registros.get(position).getIdentificacion());
         txvNombre.setText("Nombre:"+registros.get(position).getNombre());
         txvTelefono.setText("Telefono:"+registros.get(position).getTelefono());
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        txvFechaIngreso.setText("Fecha Ingreso: "+ format.format(registros.get(position).getFechaIngreso()));
-        txvFechaSalida.setText("Fecha Salida: "+ format.format(registros.get(position).getFechaSalida()));
+        txvFechaIngreso.setText("Fecha Ingreso: "+ String.format(registros.get(position).getFechaIngreso()));
+        txvFechaSalida.setText("Fecha Salida: "+ String.format(registros.get(position).getFechaSalida()));
         txvObservacion.setText("Observacion:"+registros.get(position).getObservacion());
+        txvTotal.setText("Total:"+registros.get(position).getTotal());
 
         return(item);
     }

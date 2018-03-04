@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.parqueadero.parqueadero.R;
+import com.parqueadero.parqueadero.modelo.Registro;
 
 public class Menu extends AppCompatActivity {
 
@@ -13,7 +14,6 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
     }
 
     public void click(View view) {
@@ -30,6 +30,9 @@ public class Menu extends AppCompatActivity {
                 finish();
                 break;
             case R.id.btnSalida:
+                intent = new Intent().setClass(this,Salida.class);
+                startActivity(intent);
+                finish();
                 break;
             default:
                 break;

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.parqueadero.parqueadero.R;
 import com.parqueadero.parqueadero.modelo.Registro;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -41,14 +42,15 @@ public class Ingreso extends AppCompatActivity {
     public void btnIngresar(View view) {
         if(validarCampos()){
             Date fecha = new Date();
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS");
             Registro objRegistro = new Registro(placa.getText().toString().toUpperCase(),
                                                 identificacion.getText().toString(),
                                                 nombre.getText().toString(),
                                                 telefono.getText().toString(),
                                                 observacion.getText().toString(),
-                                                fecha,null);
+                                                format.format(fecha),"",0);
             objRegistro.save();
-            Toast.makeText(this,"Se ingreso correctamente",Toast.LENGTH_LONG);
+            Toast.makeText(this,"Se ingreso correctamente",Toast.LENGTH_LONG).show();
         }
     }
 
