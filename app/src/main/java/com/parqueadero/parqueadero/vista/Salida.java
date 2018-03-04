@@ -54,7 +54,7 @@ public class Salida extends AppCompatActivity {
                         edtNombre.getText().toString(),
                         edtTelefono.getText().toString(),
                         edtObservacion.getText().toString(),
-                        format.format(fecha), "",Double.parseDouble(edtTotal.getText().toString()));
+                        format.format(fecha), "",Long.parseLong(edtTotal.getText().toString()));
                 objRegistro.setId(idRegistro);
                 objRegistro.update();
                 Toast.makeText(this, "Se ingreso correctamente", Toast.LENGTH_LONG).show();

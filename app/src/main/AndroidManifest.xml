@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="parqueadero.db" />
+            android:value="parq1.db" />
         <meta-data
             android:name="VERSION"
             android:value="1" />

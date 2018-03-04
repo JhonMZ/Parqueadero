@@ -17,7 +17,7 @@ public class Registro extends SugarRecord {
     private String observacion;
     private String fechaIngreso;
     private String fechaSalida;
-    private double total;
+    private long total;
 
     public Registro() {
         this.placa = "";
@@ -30,7 +30,7 @@ public class Registro extends SugarRecord {
         this.total = 0;
     }
 
-    public Registro(String placa, String identificacion, String nombre, String telefono, String observacion, String fechaIngreso, String fechaSalida, double total) {
+    public Registro(String placa, String identificacion, String nombre, String telefono, String observacion, String fechaIngreso, String fechaSalida, long total) {
         this.placa = placa;
         this.identificacion = identificacion;
         this.nombre = nombre;
@@ -97,11 +97,11 @@ public class Registro extends SugarRecord {
         this.fechaSalida = fechaSalida;
     }
 
-    public double getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 
