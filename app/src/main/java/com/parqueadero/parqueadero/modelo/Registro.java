@@ -17,6 +17,7 @@ public class Registro extends SugarRecord {
     private String observacion;
     private String fechaIngreso;
     private String fechaSalida;
+    private String tipo;
     private long total;
 
     public Registro() {
@@ -27,10 +28,11 @@ public class Registro extends SugarRecord {
         this.observacion = "";
         this.fechaIngreso = new Date().toString();
         this.fechaSalida = new Date().toString();
+        this.tipo = "";
         this.total = 0;
     }
 
-    public Registro(String placa, String identificacion, String nombre, String telefono, String observacion, String fechaIngreso, String fechaSalida, long total) {
+    public Registro(String placa, String identificacion, String nombre, String telefono, String observacion, String fechaIngreso, String fechaSalida, long total, String tipo) {
         this.placa = placa;
         this.identificacion = identificacion;
         this.nombre = nombre;
@@ -38,6 +40,7 @@ public class Registro extends SugarRecord {
         this.observacion = observacion;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
+        this.tipo = tipo;
         this.total = total;
     }
 
@@ -71,6 +74,14 @@ public class Registro extends SugarRecord {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo= tipo;
     }
 
     public String getObservacion() {

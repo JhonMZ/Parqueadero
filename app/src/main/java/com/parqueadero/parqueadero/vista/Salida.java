@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.parqueadero.parqueadero.R;
@@ -28,6 +29,8 @@ public class Salida extends AppCompatActivity {
     TextInputEditText edtFechaSalida;
     TextInputEditText edtObservacion;
     TextInputEditText edtTotal;
+    RadioButton rdbCarro;
+    RadioButton rdbMoto;
     long idRegistro = 0;
 
     @Override
@@ -42,21 +45,24 @@ public class Salida extends AppCompatActivity {
         edtFechaSalida = (TextInputEditText) findViewById(R.id.EdtFechaSalida);
         edtObservacion = (TextInputEditText) findViewById(R.id.EdtObservaciones);
         edtTotal = (TextInputEditText) findViewById(R.id.EdtTotal);
+        rdbCarro = (RadioButton) findViewById(R.id.rdbCarroS);
+        rdbMoto = (RadioButton) findViewById(R.id.rdbMotoS);
     }
 
     public void btnIngresarSalida(View view) {
         if(validarCampos()){
             if(idRegistro!=0) {
                 Date fecha = new Date();
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS");
-                Registro objRegistro = new Registro(edtPlaca.getText().toString().toUpperCase(),
-                        edtIdentificacion.getText().toString(),
-                        edtNombre.getText().toString(),
-                        edtTelefono.getText().toString(),
-                        edtObservacion.getText().toString(),
-                        format.format(fecha), "",Long.parseLong(edtTotal.getText().toString()));
-                objRegistro.setId(idRegistro);
-                objRegistro.update();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Registro objRegistro = Registro.findById(Registro.class,idRegistro);
+                objRegistro.setIdentificacion(edtIdentificacion.getText().toString());
+                objRegistro.setNombre(edtNombre.getText().toString());
+                objRegistro.setTelefono(edtTelefono.getText().toString());
+                objRegistro.setObservacion(edtObservacion.getText().toString());
+                objRegistro.setFechaIngreso(edtFechaIngreso.getText().toString());
+                objRegistro.setFechaSalida(edtFechaSalida.getText().toString());
+                objRegistro.setTotal(Long.parseLong(edtTotal.getText().toString()));
+                objRegistro.save();
                 Toast.makeText(this, "Se ingreso correctamente", Toast.LENGTH_LONG).show();
             }else {
                 Toast.makeText(this, "Ingrese una placa", Toast.LENGTH_LONG).show();
@@ -69,7 +75,7 @@ public class Salida extends AppCompatActivity {
             Toast.makeText(this,"Campo Placa Vacio",Toast.LENGTH_LONG).show();
             return false;
         }else{
-            if(!edtPlaca.getText().toString().matches("([a-zA-Z]{3}[0-9]{3}$)|([a-zA-Z]{3}[0-9]{2}[a-zA-Z]{1}$)")){
+            if(!edtPlaca.getText().toString().matches("([a-zA-Z]{3}[0-9]{3}$)|([a-zA-Z]{3}[0-9]{2}[a-zA-Z]{1}$)|([a-zA-Z]{3}[0-9]{2}$)")){
                 Toast.makeText(this,"Placa incorrecta",Toast.LENGTH_LONG).show();
                 return false;
             }
@@ -137,7 +143,7 @@ public class Salida extends AppCompatActivity {
             Toast.makeText(this,"Campo Placa Vacio",Toast.LENGTH_LONG).show();
             return false;
         }else{
-            if(!edtPlaca.getText().toString().matches("([a-zA-Z]{3}[0-9]{3}$)|([a-zA-Z]{3}[0-9]{2}[a-zA-Z]{1}$)")){
+            if(!edtPlaca.getText().toString().matches("([a-zA-Z]{3}[0-9]{3}$)|([a-zA-Z]{3}[0-9]{2}[a-zA-Z]{1}$)|([a-zA-Z]{3}[0-9]{2}$)")){
                 Toast.makeText(this,"Placa incorrecta",Toast.LENGTH_LONG).show();
                 return false;
             }
@@ -153,5 +159,12 @@ public class Salida extends AppCompatActivity {
         edtFechaIngreso.setText(registros.get(0).getFechaIngreso());
         edtObservacion.setText(registros.get(0).getObservacion());
         idRegistro = registros.get(0).getId();
+        Date fecha = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS");
+        edtFechaSalida.setText(format.format(fecha));
+        if(registros.get(0).getTipo().equals("MOTO"))
+            rdbMoto.setChecked(true);
+        else if(registros.get(0).getTipo().equals("CARRO"))
+            rdbCarro.setChecked(true);
     }
 }

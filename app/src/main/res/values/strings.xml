@@ -18,5 +18,13 @@
     <string name="fechaIngreso">Fecha Ingreso:</string>
     <string name="fechaSalida">Fecha Salida:</string>
     <string name="total">Total:</string>
+    <string name="fecha_inicial">Fecha Inicial</string>
+    <string name="fecha_final">Fecha Final</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="motos_sin_salida">Motos sin salida:</string>
+    <string name="carros_sin_salida">Carros sin salida:</string>
+    <string name="moto">Moto</string>
+    <string name="carro">Carro</string>
+    <string name="tipo_de_veh_culo">Tipo de vehículo:</string>
 
 </resources>

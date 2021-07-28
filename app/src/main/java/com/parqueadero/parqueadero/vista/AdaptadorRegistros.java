@@ -42,8 +42,10 @@ public class AdaptadorRegistros extends ArrayAdapter<Registro> {
         TextView txvFechaSalida = (TextView)item.findViewById(R.id.txvFechaSalida);
         TextView txvObservacion = (TextView)item.findViewById(R.id.txvObservacion);
         TextView txvTotal = (TextView)item.findViewById(R.id.txvTotal);
+        TextView txvTipo = (TextView)item.findViewById(R.id.txvTipo);
 
         txvPlaca.setText("Placa:"+registros.get(position).getPlaca());
+        txvTipo.setText("Tipo:"+registros.get(position).getTipo());
         txvIdentificacion.setText("Identificacion:"+registros.get(position).getIdentificacion());
         txvNombre.setText("Nombre:"+registros.get(position).getNombre());
         txvTelefono.setText("Telefono:"+registros.get(position).getTelefono());

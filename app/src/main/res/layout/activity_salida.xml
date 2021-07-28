@@ -50,6 +50,32 @@
             </LinearLayout>
         </LinearLayout>
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tipo_de_veh_culo"
+                android:textSize="18sp"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/moto"
+                android:textSize="18sp"
+                android:id="@+id/rdbMotoS"
+                android:enabled="false"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/carro"
+                android:textSize="18sp"
+                android:id="@+id/rdbCarroS"
+                android:enabled="false"/>
+        </RadioGroup>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,6 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
+                android:enabled="false"
                 android:id="@+id/EdtFechaSalida"
                 android:hint="@string/fechaSalida"/>
 
